@@ -1,10 +1,11 @@
 <!-- views/history_payment.php -->
 <?php
 session_start();
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
-    header("Location: ../views/login.php");
+if (!isset($_SESSION['role']) || ($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'petugas')) {
+    header("Location: login.php");
     exit();
 }
+
 include '../config/database.php';
 
 // Get payment history

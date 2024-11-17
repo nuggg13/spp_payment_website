@@ -17,18 +17,18 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Add New Class</h1>
+        <h1 class="text-3xl font-bold mb-4">Tambah Kelas Baru</h1>
 
         <form action="../controllers/class_process.php" method="POST" class="bg-white p-4 rounded-lg shadow-md">
     <input type="hidden" name="action" value="add">
 
     <div class="mb-4">
-        <label for="nama_kelas" class="block text-gray-700">Class Name</label>
+        <label for="nama_kelas" class="block text-gray-700">Nama Kelas</label>
         <input type="text" name="nama_kelas" id="nama_kelas" class="border border-gray-300 p-2 w-full" required>
     </div>
 
     <div class="mb-4">
-        <label for="kompetensi_keahlian" class="block text-gray-700">Expertise</label>
+        <label for="kompetensi_keahlian" class="block text-gray-700">Jurusan</label>
         <input type="text" name="kompetensi_keahlian" id="kompetensi_keahlian" class="border border-gray-300 p-2 w-full" required>
     </div>
 

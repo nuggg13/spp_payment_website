@@ -1,10 +1,18 @@
-<!-- views/admin_dashboard.php -->
 <?php
 session_start();
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     header("Location: ../views/login.php");
     exit();
 }
+
+// Include database connection
+include '../config/database.php';
+
+// Get admin details using session data
+$username = $_SESSION['username']; // Assumes 'username' is stored in session during login
+$stmt = $db->prepare("SELECT * FROM petugas WHERE username = ?");
+$stmt->execute([$username]);
+$admin = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -17,18 +25,26 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Welcome, Admin!</h1>
+        <h1 class="text-3xl font-bold mb-4">Welcome, <?= htmlspecialchars($admin['nama_petugas']) ?>!</h1>
         
+        <!-- Admin Information -->
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+            <h2 class="text-xl font-bold mb-2">Admin Data</h2>
+            <p><strong>Username:</strong> <?= htmlspecialchars($admin['username']) ?></p>
+            <p><strong>Nama:</strong> <?= htmlspecialchars($admin['nama_petugas']) ?></p>
+            <p><strong>Level:</strong> <?= htmlspecialchars($admin['level']) ?></p>
+        </div>
+
         <!-- Navigation Links -->
         <nav class="bg-white p-4 rounded-lg shadow-md">
             <ul class="flex space-x-4">
-                <li><a href="manage_students.php" class="text-blue-500 hover:text-blue-700">Manage Students</a></li>
-                <li><a href="manage_officers.php" class="text-blue-500 hover:text-blue-700">Manage Officers</a></li>
-                <li><a href="manage_classes.php" class="text-blue-500 hover:text-blue-700">Manage Classes</a></li>
-                <li><a href="manage_fees.php" class="text-blue-500 hover:text-blue-700">Manage Fees</a></li>
-                <li><a href="entry_payment.php" class="text-blue-500 hover:text-blue-700">Entri Payment</a></li>
-                <li><a href="history_payment.php" class="text-blue-500 hover:text-blue-700">History Payment</a></li>
-                <li><a href="generate_report.php" class="text-blue-500 hover:text-blue-700">Generate Report</a></li>
+                <li><a href="manage_students.php" class="text-blue-500 hover:text-blue-700">Atur Siswa</a></li>
+                <li><a href="manage_officers.php" class="text-blue-500 hover:text-blue-700">Atur Petugas</a></li>
+                <li><a href="manage_classes.php" class="text-blue-500 hover:text-blue-700">Atur Kelas</a></li>
+                <li><a href="manage_fees.php" class="text-blue-500 hover:text-blue-700">Atur Spp</a></li>
+                <li><a href="entry_payment.php" class="text-blue-500 hover:text-blue-700">Pembayaran Spp</a></li>
+                <li><a href="history_payment.php" class="text-blue-500 hover:text-blue-700">Riwayat</a></li>
+                <li><a href="generate_report.php" class="text-blue-500 hover:text-blue-700">Buat Laporan</a></li>
                 <li><a href="../controllers/logout.php" class="text-red-500 hover:text-red-700">Logout</a></li>
             </ul>
         </nav>

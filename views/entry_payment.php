@@ -1,10 +1,11 @@
 <!-- views/entry_payment.php -->
 <?php
 session_start();
-if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
-    header("Location: ../views/login.php");
+if (!isset($_SESSION['role']) || ($_SESSION['role'] != 'admin' && $_SESSION['role'] != 'petugas')) {
+    header("Location: login.php");
     exit();
 }
+
 include '../config/database.php';
 $sppOptions = $db->query("SELECT id_spp, tahun FROM spp")->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -14,12 +15,12 @@ $sppOptions = $db->query("SELECT id_spp, tahun FROM spp")->fetchAll(PDO::FETCH_A
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entry Payment</title>
+    <title>Pembayaran Spp</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Entry Payment</h1>
+        <h1 class="text-3xl font-bold mb-4">Bayar Spp</h1>
 
         <?php if (isset($_GET['success'])): ?>
             <p class="text-green-500 mb-4">Payment entry successful!</p>
@@ -31,19 +32,19 @@ $sppOptions = $db->query("SELECT id_spp, tahun FROM spp")->fetchAll(PDO::FETCH_A
                 <input type="text" id="nisn" name="nisn" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div class="mb-4">
-                <label for="payment_date" class="block text-gray-700">Payment Date:</label>
+                <label for="payment_date" class="block text-gray-700">Tanggal Bayar:</label>
                 <input type="date" id="payment_date" name="payment_date" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div class="mb-4">
-                <label for="month" class="block text-gray-700">Month:</label>
+                <label for="month" class="block text-gray-700">Bulan:</label>
                 <input type="text" id="month" name="month" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div class="mb-4">
-                <label for="year" class="block text-gray-700">Year:</label>
+                <label for="year" class="block text-gray-700">Tahun:</label>
                 <input type="text" id="year" name="year" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
             <div class="mb-4">
-                <label for="amount" class="block text-gray-700">Amount:</label>
+                <label for="amount" class="block text-gray-700">Nominal:</label>
                 <input type="number" id="amount" name="amount" class="w-full px-4 py-2 border rounded-lg" required>
             </div>
 
@@ -62,7 +63,7 @@ $sppOptions = $db->query("SELECT id_spp, tahun FROM spp")->fetchAll(PDO::FETCH_A
                 <p class="text-red-500">Error: id_petugas is not set. Please log in again.</p>
             <?php endif; ?>
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Submit Payment</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Submit</button>
         </form>
     </div>
 </body>

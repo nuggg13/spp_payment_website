@@ -20,23 +20,23 @@ $classes = $classStmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Edit Student</h1>
+        <h1 class="text-3xl font-bold mb-4">Edit Siswa</h1>
         <form action="../controllers/edit_student_process.php" method="POST" class="bg-white p-6 rounded shadow-md">
             <input type="hidden" name="nisn" value="<?= $student['nisn'] ?>">
             
             <label class="block mb-2">NIS:</label>
             <input type="text" name="nis" value="<?= $student['nis'] ?>" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Name:</label>
+            <label class="block mb-2">Nama:</label>
             <input type="text" name="nama" value="<?= $student['nama'] ?>" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Address:</label>
+            <label class="block mb-2">Alamat:</label>
             <input type="text" name="alamat" value="<?= $student['alamat'] ?>" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Phone:</label>
+            <label class="block mb-2">Nomor Telepon:</label>
             <input type="text" name="no_telp" value="<?= $student['no_telp'] ?>" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Class:</label>
+            <label class="block mb-2">Kelas:</label>
             <select name="id_kelas" required class="border rounded w-full p-2 mb-4">
                 <?php foreach ($classes as $class): ?>
                     <option value="<?= $class['id_kelas'] ?>" <?= $class['id_kelas'] == $student['id_kelas'] ? 'selected' : '' ?>>
@@ -45,7 +45,7 @@ $classes = $classStmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
             </select>
             
-            <button type="submit" class="bg-green-500 text-white p-2 rounded">Update Student</button>
+            <button type="submit" class="bg-green-500 text-white p-2 rounded">Update</button>
         </form>
     </div>
 </body>

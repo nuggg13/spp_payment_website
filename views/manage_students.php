@@ -22,18 +22,18 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Manage Students</h1>
-        <a href="add_student.php" class="text-blue-500 hover:text-blue-700 mb-4 inline-block">Add New Student</a>
+        <h1 class="text-3xl font-bold mb-4">Daftar Siswa</h1>
+        <a href="add_student.php" class="text-blue-500 hover:text-blue-700 mb-4 inline-block">Tambah Siswa Baru</a>
         
         <table class="table-auto w-full bg-white shadow-md rounded border">
             <thead>
                 <tr>
                     <th class="px-4 py-2 border">NISN</th>
                     <th class="px-4 py-2 border">NIS</th>
-                    <th class="px-4 py-2 border">Name</th>
-                    <th class="px-4 py-2 border">Address</th>
-                    <th class="px-4 py-2 border">Phone</th>
-                    <th class="px-4 py-2 border">Class</th>
+                    <th class="px-4 py-2 border">Nama</th>
+                    <th class="px-4 py-2 border">Alamat</th>
+                    <th class="px-4 py-2 border">Nomor Telepon</th>
+                    <th class="px-4 py-2 border">Kelas</th>
                     <th class="px-4 py-2 border">Actions</th>
                 </tr>
             </thead>

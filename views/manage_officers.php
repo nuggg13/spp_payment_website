@@ -22,17 +22,17 @@ $officers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Manage Officers</h1>
+        <h1 class="text-3xl font-bold mb-4">Daftar Petugas</h1>
 
         <!-- Add Officer Form -->
         <form action="../controllers/officer_process.php" method="POST" class="bg-white p-4 rounded-lg shadow-md mb-6">
-            <h2 class="text-2xl font-bold mb-4">Add New Officer</h2>
+            <h2 class="text-2xl font-bold mb-4">Tambah Petugas Baru</h2>
             <div class="mb-4">
-                <label for="id_petugas" class="block text-gray-700">Officer ID</label>
+                <label for="id_petugas" class="block text-gray-700">ID Petugas</label>
                 <input type="text" name="id_petugas" id="id_petugas" class="border border-gray-300 p-2 w-full" required>
             </div>
             <div class="mb-4">
-                <label for="nama_petugas" class="block text-gray-700">Officer Name</label>
+                <label for="nama_petugas" class="block text-gray-700">Nama Petugas</label>
                 <input type="text" name="nama_petugas" id="nama_petugas" class="border border-gray-300 p-2 w-full" required>
             </div>
             <div class="mb-4">
@@ -50,15 +50,15 @@ $officers = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <option value="petugas">Officer</option>
                 </select>
             </div>
-            <button type="submit" name="action" value="create" class="bg-blue-500 text-white px-4 py-2 rounded">Add Officer</button>
+            <button type="submit" name="action" value="create" class="bg-blue-500 text-white px-4 py-2 rounded">Tambah</button>
         </form>
 
         <!-- Officers Table -->
         <table class="bg-white w-full rounded-lg shadow-md">
             <thead>
                 <tr>
-                    <th class="p-4 border-b">Officer ID</th>
-                    <th class="p-4 border-b">Officer Name</th>
+                    <th class="p-4 border-b">ID Petugas</th>
+                    <th class="p-4 border-b">Nama Petugas</th>
                     <th class="p-4 border-b">Username</th>
                     <th class="p-4 border-b">Level</th>
                     <th class="p-4 border-b">Actions</th>

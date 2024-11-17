@@ -31,14 +31,14 @@ if (!$officer) {
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Edit Officer</h1>
+        <h1 class="text-3xl font-bold mb-4">Edit Petugas</h1>
 
         <form action="../controllers/officer_process.php" method="POST" class="bg-white p-4 rounded-lg shadow-md mb-6">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id_petugas" value="<?= $officer['id_petugas'] ?>">
 
             <div class="mb-4">
-                <label for="nama_petugas" class="block text-gray-700">Officer Name</label>
+                <label for="nama_petugas" class="block text-gray-700">Nama Petugas</label>
                 <input type="text" name="nama_petugas" id="nama_petugas" value="<?= $officer['nama_petugas'] ?>" class="border border-gray-300 p-2 w-full" required>
             </div>
 
@@ -55,7 +55,7 @@ if (!$officer) {
                 </select>
             </div>
 
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save Changes</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
             <a href="manage_officers.php" class="text-gray-500 ml-4">Cancel</a>
         </form>
     </div>

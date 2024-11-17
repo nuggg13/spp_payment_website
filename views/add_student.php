@@ -15,7 +15,7 @@ $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Add New Student</h1>
+        <h1 class="text-3xl font-bold mb-4">Tambah Siswa Baru</h1>
         <form action="../controllers/add_student_process.php" method="POST" class="bg-white p-6 rounded shadow-md">
             <label class="block mb-2">NISN:</label>
             <input type="text" name="nisn" required class="border rounded w-full p-2 mb-4">
@@ -23,23 +23,23 @@ $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <label class="block mb-2">NIS:</label>
             <input type="text" name="nis" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Name:</label>
+            <label class="block mb-2">Nama:</label>
             <input type="text" name="nama" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Address:</label>
+            <label class="block mb-2">Alamat:</label>
             <input type="text" name="alamat" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Phone:</label>
+            <label class="block mb-2">Nomor Telepon:</label>
             <input type="text" name="no_telp" required class="border rounded w-full p-2 mb-4">
             
-            <label class="block mb-2">Class:</label>
+            <label class="block mb-2">Kelas:</label>
             <select name="id_kelas" required class="border rounded w-full p-2 mb-4">
                 <?php foreach ($classes as $class): ?>
                     <option value="<?= $class['id_kelas'] ?>"><?= $class['nama_kelas'] ?></option>
                 <?php endforeach; ?>
             </select>
             
-            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Add Student</button>
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Tambah</button>
         </form>
     </div>
 </body>

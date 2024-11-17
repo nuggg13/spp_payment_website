@@ -59,8 +59,8 @@ $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">NISN</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Student Name</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Officer</th>
-                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Payment Date</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Petugas</th>
+                    <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Tanggal Bayar</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Month Paid</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Year</th>
                     <th class="px-6 py-3 border-b-2 border-gray-300 text-left leading-4 text-blue-500">Amount</th>

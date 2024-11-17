@@ -16,10 +16,14 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Add New Fee</h1>
+        <h1 class="text-3xl font-bold mb-4">Tambah Spp</h1>
         <form action="../controllers/add_fee_process.php" method="POST" class="bg-white p-6 rounded-lg shadow-md">
             <div class="mb-4">
-                <label for="year" class="block text-gray-700 font-bold">Year</label>
+                <label for="id_spp" class="block text-gray-700 font-bold">ID SPP</label>
+                <input type="text" id="id_spp" name="id_spp" class="w-full border-gray-300 rounded-md" required>
+            </div>
+            <div class="mb-4">
+                <label for="year" class="block text-gray-700 font-bold">Tahun</label>
                 <input type="number" id="year" name="year" class="w-full border-gray-300 rounded-md" required>
             </div>
             <div class="mb-4">
@@ -31,3 +35,4 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
     </div>
 </body>
 </html>
+

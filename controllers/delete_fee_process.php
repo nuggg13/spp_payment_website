@@ -7,11 +7,20 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'admin') {
 
 include '../config/database.php';
 
-$id = $_GET['id'];
+if (isset($_GET['id_spp'])) {
+    $id_spp = $_GET['id_spp'];
 
-$stmt = $db->prepare("DELETE FROM spp WHERE id_spp = ?");
-$stmt->execute([$id]);
+    try {
+        // Delete the fee from the database
+        $stmt = $db->prepare("DELETE FROM spp WHERE id_spp = ?");
+        $stmt->execute([$id_spp]);
 
-header("Location: ../views/manage_fees.php?success=1");
-exit();
-?>
+        // Redirect back to manage fees with success message
+        header("Location: ../views/manage_fees.php?success=Fee deleted successfully");
+    } catch (PDOException $e) {
+        // Redirect back to manage fees with error message
+        header("Location: ../views/manage_fees.php?error=Failed to delete fee: " . $e->getMessage());
+    }
+} else {
+    header("Location: ../views/manage_fees.php?error=Invalid fee ID");
+}

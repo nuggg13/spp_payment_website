@@ -23,18 +23,18 @@ $classes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Manage Classes</h1>
+        <h1 class="text-3xl font-bold mb-4">Daftar Kelas</h1>
 
         <!-- Add Class Button -->
-        <a href="add_class.php" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Add Class</a>
+        <a href="add_class.php" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 inline-block">Tambah Kelas</a>
 
         <!-- Class Table -->
         <table class="table-auto w-full bg-white shadow-md rounded-lg">
             <thead>
                 <tr class="bg-gray-200">
                     <th class="px-4 py-2">ID</th>
-                    <th class="px-4 py-2">Class Name</th>
-                    <th class="px-4 py-2">Expertise</th>
+                    <th class="px-4 py-2">Nama Kelas</th>
+                    <th class="px-4 py-2">Jurusan</th>
                     <th class="px-4 py-2">Actions</th>
                 </tr>
             </thead>
