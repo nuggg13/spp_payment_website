@@ -36,9 +36,14 @@ $payments = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+
+<header class="relative bg-gray-800 text-white text-center">
+        <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold">Welcome, <?= htmlspecialchars($_SESSION['nama']); ?>!</h1>
+        <img src="../assets/perpustakaan.png" alt="Gambar Perpustakaan" class="w-full h-64 object-cover opacity-70">
+    </header>
+
     <div class="container mx-auto mt-10">
-        <h1 class="text-3xl font-bold mb-4">Welcome, <?= htmlspecialchars($_SESSION['nama']); ?>!</h1>
-        <p class="mb-4">Ini Riwayat Anda :</p>
+
 
         <!-- Payment History Table -->
         <div class="bg-white p-6 rounded-lg shadow-md">

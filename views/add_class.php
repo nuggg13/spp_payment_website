@@ -28,7 +28,7 @@ $admin = $stmt->fetch(PDO::FETCH_ASSOC);
         <img src="../assets/perpustakaan.png" alt="Gambar Perpustakaan" class="w-full h-64 object-cover opacity-70">
     </header>
 
-    <nav class="bg-gray-900 text-white p-4 shadow-md">
+    <nav class="bg-white p-4 shadow-md">
         <ul class="flex space-x-4">
             <li><a href="manage_students.php" class="text-blue-500 hover:text-blue-700">Atur Siswa</a></li>
             <li><a href="manage_officers.php" class="text-blue-500 hover:text-blue-700">Atur Petugas</a></li>
