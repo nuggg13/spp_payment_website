@@ -28,10 +28,12 @@ $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 <body class="bg-gray-100">
 
 <header class="relative bg-gray-800 text-white text-center">
-        <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold">Welcome, <?= htmlspecialchars($admin['nama_petugas']) ?>!</h1>
-        <img src="../assets/perpustakaan.png" alt="Gambar Perpustakaan" class="w-full h-64 object-cover opacity-70">
-    </header>
+    <h1 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold">Welcome, <?= htmlspecialchars($admin['nama_petugas']) ?>!</h1>
+    <img src="../assets/perpustakaan.png" alt="Gambar Perpustakaan" class="w-full h-64 object-cover opacity-70">
+</header>
 
+<?php if ($_SESSION['role'] === 'admin'): ?>
+    <!-- Navigasi untuk admin -->
     <nav class="bg-white p-4 shadow-md">
         <ul class="flex space-x-4">
             <li><a href="manage_students.php" class="text-blue-500 hover:text-blue-700">Atur Siswa</a></li>
@@ -44,6 +46,16 @@ $admin = $stmt->fetch(PDO::FETCH_ASSOC);
             <li><a href="../controllers/logout.php" class="text-red-500 hover:text-red-700">Logout</a></li>
         </ul>
     </nav>
+<?php elseif ($_SESSION['role'] === 'petugas'): ?>
+    <!-- Navigasi untuk petugas -->
+    <nav class="bg-white p-4 rounded-lg shadow-md">
+        <ul class="flex space-x-4">
+            <li><a href="../views/entry_payment.php" class="text-blue-500 hover:text-blue-700">Pembayaran Spp</a></li>
+            <li><a href="../views/history_payment.php" class="text-blue-500 hover:text-blue-700">Riwayat</a></li>
+            <li><a href="../controllers/logout.php" class="text-red-500 hover:text-red-700">Logout</a></li>
+        </ul>
+    </nav>
+<?php endif; ?>
 
     <div class="container mx-auto mt-10">
         <h1 class="text-3xl font-bold mb-4">Bayar Spp</h1>
